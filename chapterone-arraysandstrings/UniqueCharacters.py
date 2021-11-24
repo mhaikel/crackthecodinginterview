@@ -3,10 +3,20 @@
 """
 import unittest
 
+#Time O(n^2) space O(1)
 def isUnique(s):
     for i in range(len(s) - 1):
-        if s[i] == s[i + 1]:
-            return False
+        for j in range(i + 1, len(s)):
+            if s[i] == s[j]:
+                return False
     return True
 
-print(isUnique("siters"))
+#using set time O(n) space O(n)
+def isUniqueUsingSet(s):
+    setString = set(s)
+    if len(setString) == len(s):
+        return True
+    return False
+
+#driver
+print(isUnique("tesgj45jjkgm"))
